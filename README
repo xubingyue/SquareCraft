@@ -1,0 +1,4 @@
+Simple, open-source 2D Minecraft clone written in OOP C++ using SFML2 library.
+Used SFML2 version: LaurentGomila-SFML-bindings_removed-113-ga9f0ba7
+
+After building project - please copy all files from images and resources directories to directory with binaries!
