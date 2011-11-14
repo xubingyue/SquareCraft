@@ -1,20 +1,14 @@
 #include "SGame.h"
 #include "SObject.h"
 #include "SBlock.h"
-#include <list>
-
-
-
 #include "SAnimation.h"
+
 SGame::SGame() : sf::RenderWindow(sf::VideoMode(672,480),"SquareCraft",sf::Style::Close) {
-	
-		SAnimation pek("p0.png,p1.png,p2.png,p3.png,p4.png,p5.png,p6.png,p7.png,p8.png,p9.png");
-
-
-
+	SAnimation pek("p0.png,p1.png,p2.png,p3.png,p4.png,p5.png,p6.png,p7.png,p8.png,p9.png");
 	SObject moon("moon.png",0,50);
-	SHero hero(48,240);
 	SObject ghost("ghost.png");
+	SHero hero(48,240);
+
 	SetFramerateLimit(60);
 	while(IsOpened()) {
 		sf::Event event;

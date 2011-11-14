@@ -2,7 +2,6 @@
 #include "SGame.h"
 #include "SBlock.h"
 #include <cmath>
-#include <list>
 
 SHero::SHero(float x,float y) : SObject("hero.png",x,y) {
 	jumpPower=6.0F;
