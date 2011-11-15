@@ -1,11 +1,9 @@
-#include "SObject.h"
-#include "SGame.h"
+#include "PCH.h"
 
 SObject::SObject(sf::Texture *tex,float x,float y) : sf::Sprite() {
 	wsk=tex;
 	SetTexture(*wsk);
 	SetPosition(x,y);
-	hasTexture=false;
 }
 
 SObject::SObject(std::string path,float x,float y) : sf::Sprite() {
@@ -13,11 +11,10 @@ SObject::SObject(std::string path,float x,float y) : sf::Sprite() {
 	wsk->LoadFromFile(path);
 	SetTexture(*wsk);
 	SetPosition(x,y);
-	hasTexture=true;
 }
 
 SObject::~SObject() {
-	if(hasTexture) delete wsk;
+	delete wsk;
 }
 
 void SObject::DrawIt() {

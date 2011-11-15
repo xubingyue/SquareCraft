@@ -1,8 +1,6 @@
 #ifndef SHERO_H
 #define SHERO_H
 
-#include "SObject.h"
-
 class SHero : public SObject {
 public:
 	SHero(float x,float y);

@@ -1,5 +1,4 @@
-#include "SManager.h"
-#include "SGame.h"
+#include "PCH.h"
 
 SManager::SManager() {
 	stone=new sf::Texture(); stone->LoadFromFile("stone.png");
@@ -13,6 +12,16 @@ SManager::SManager() {
 	for(int x=0;x<168;x++) 
 		for(int y=0;y<20;y++) 
 			PlaceBlocks((float)(x*24),(float)(456-y*24));
+}
+
+SManager::~SManager() {
+	delete stone;
+	delete dirt;
+	delete grass;
+	delete coal;
+	delete copper;
+	delete iron;
+	delete gold;
 }
 
 void SManager::PlaceBlock(sf::Texture *tex,float x,float y) {

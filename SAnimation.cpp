@@ -1,5 +1,4 @@
-#include "SAnimation.h"
-#include "SGame.h"
+#include "PCH.h"
 
 SAnimation::SAnimation(std::string files,float x,float y) : sf::Sprite() {
 	current=-1;

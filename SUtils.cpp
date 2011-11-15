@@ -1,8 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include "SUtils.h"
-#include <cstdlib>
-#include <cmath>
-#include <ctime>
+#include "PCH.h"
 
 SUtils::SUtils() {
 	srand((unsigned int)time(NULL));

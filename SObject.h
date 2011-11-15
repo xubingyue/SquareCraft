@@ -1,9 +1,6 @@
 #ifndef SOBJECT_H
 #define SOBJECT_H
 
-#include <SFML/Graphics.hpp>
-#include <string>
-
 class SObject : public sf::Sprite {
 public:
 	SObject(sf::Texture *tex,float x=0,float y=0);
@@ -13,7 +10,6 @@ public:
 
 private:
 	sf::Texture *wsk;
-	bool hasTexture;
 };
 
 #endif

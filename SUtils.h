@@ -1,9 +1,6 @@
 #ifndef SUTILS_H
 #define SUTILS_H
 
-#include <vector>
-#include <string>
-
 class SUtils {
 public:
 	SUtils();

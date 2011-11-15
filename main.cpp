@@ -1,4 +1,4 @@
-#include "SGame.h"
+#include "PCH.h"
 
 int main() {
 	SGame::GetInstance();

@@ -1,12 +1,10 @@
 #ifndef SMANAGER_H
 #define SMANAGER_H
 
-#include <list>
-#include "SBlock.h"
-
 class SManager {
 public:
 	SManager();
+	virtual ~SManager();
 	void PlaceBlock(sf::Texture *tex,float x,float y);
 	void PlaceBlocks(float x,float y);
 	void RemoveBlock(float x,float y);

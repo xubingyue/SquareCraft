@@ -1,5 +1,4 @@
-#include "SBlock.h"
-#include "SGame.h"
+#include "PCH.h"
 
 SBlock::SBlock(sf::Texture *tex,float x,float y) : SObject(tex,x,y) {
 	light=2;
