@@ -13,6 +13,26 @@ SGame::SGame() : sf::RenderWindow(sf::VideoMode(672,480),"SquareCraft",sf::Style
 			if(event.Type==sf::Event::Closed) Close();
 			if(event.Type==sf::Event::KeyPressed) {
 				if(event.Key.Code==sf::Keyboard::Escape) Close();
+				if(event.Key.Code==sf::Keyboard::Num1) inv.frame.SetPosition(185,inv.frame.GetPosition().y);
+				if(event.Key.Code==sf::Keyboard::Num2) inv.frame.SetPosition(217,inv.frame.GetPosition().y);
+				if(event.Key.Code==sf::Keyboard::Num3) inv.frame.SetPosition(249,inv.frame.GetPosition().y);
+				if(event.Key.Code==sf::Keyboard::Num4) inv.frame.SetPosition(281,inv.frame.GetPosition().y);
+				if(event.Key.Code==sf::Keyboard::Num5) inv.frame.SetPosition(313,inv.frame.GetPosition().y);
+				if(event.Key.Code==sf::Keyboard::Num6) inv.frame.SetPosition(345,inv.frame.GetPosition().y);
+				if(event.Key.Code==sf::Keyboard::Num7) inv.frame.SetPosition(377,inv.frame.GetPosition().y);
+				if(event.Key.Code==sf::Keyboard::Num8) inv.frame.SetPosition(409,inv.frame.GetPosition().y);
+				if(event.Key.Code==sf::Keyboard::Num9) inv.frame.SetPosition(441,inv.frame.GetPosition().y);
+				if(event.Key.Code==sf::Keyboard::E) inv.Expand();
+			}
+			if(event.Type==sf::Event::MouseWheelMoved) {
+				if(event.MouseWheel.Delta<0) {
+					if(inv.frame.GetPosition().x<441) inv.frame.Move(32,0);
+					else inv.frame.SetPosition(185,inv.frame.GetPosition().y);
+				}
+				else {
+					if(inv.frame.GetPosition().x>185) inv.frame.Move(-32,0);
+					else inv.frame.SetPosition(441,inv.frame.GetPosition().y);
+				}
 			}
 		}
 		Clear(sf::Color(0,0,15));
@@ -36,7 +56,6 @@ SGame::SGame() : sf::RenderWindow(sf::VideoMode(672,480),"SquareCraft",sf::Style
 		float gridx=(float)(sf::Mouse::GetPosition(*this).x/24*24);
 		float gridy=(float)(sf::Mouse::GetPosition(*this).y/24*24);
 		SBlock *z=manager.GetBlock(gridx,gridy);
-
 		if(utils.Distance(hero.GetPosition().x,hero.GetPosition().y,gridx,gridy)<96) {
 			if(z!=NULL) {
 				if(manager.GetBlock(gridx+24,gridy)==NULL
@@ -64,19 +83,24 @@ SGame::SGame() : sf::RenderWindow(sf::VideoMode(672,480),"SquareCraft",sf::Style
 				 ||manager.GetBlock(gridx-24,gridy)!=NULL
 				 ||manager.GetBlock(gridx,gridy+24)!=NULL
 				 ||manager.GetBlock(gridx,gridy-24)!=NULL)) {
-					 if(sf::Mouse::IsButtonPressed(sf::Mouse::Right)) {
-						 manager.PlaceBlock(manager.dirt,gridx,gridy);
+					 SStack *s=inv.eq[0,(unsigned int)((inv.frame.GetPosition().x-inv.GetPosition().x)/32)];
+					 if(sf::Mouse::IsButtonPressed(sf::Mouse::Right)&&s->type!=NULL) {
+						 manager.PlaceBlock(s->type,gridx,gridy);
+						 if(s->size>1) s->size--;
+						 else s->type=NULL;
 					 }
 					ghost.SetPosition(gridx,gridy);
 					ghost.DrawIt();
 				}
 			}
 		}
+		inv.DrawIt();
 		Display();
 	}
 }
 
 void SGame::EndOfAnimation() {
+	inv.AddItem((sf::Texture *)destroy->GetTexture());
 	manager.blocks.remove(destroy);
 }
 

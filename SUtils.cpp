@@ -19,6 +19,12 @@ float SUtils::Distance(float x1,float y1,float x2,float y2) {
 	return sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
 }
 
+std::string SUtils::IntToString(int a) {
+	std::stringstream out;
+	out<<a;
+	return out.str();
+}
+
 int SUtils::Random(int max) {
 	return rand()%max;
 }

@@ -6,6 +6,7 @@ public:
 	static SGame &GetInstance();
 	void EndOfAnimation();
 	SManager manager;
+	SInventory inv;
 	SUtils utils;
 
 private:
