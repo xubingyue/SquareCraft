@@ -5,6 +5,7 @@ class SManager {
 public:
 	SManager();
 	virtual ~SManager();
+	void DrawAll();
 	void PlaceBlock(sf::Texture *tex,float x,float y);
 	void PlaceBlocks(float x,float y);
 	void RemoveBlock(float x,float y);

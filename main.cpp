@@ -1,6 +1,6 @@
 #include "PCH.h"
 
 int main() {
-	SGame::GetInstance();
+	SGame::GetInstance().StartGame();
 	return 0;
 }

@@ -10,7 +10,6 @@
 #include <cmath>
 #include <list>
 
-#include "SObject.h"
 #include "SBlock.h"
 #include "SHero.h"
 #include "SStack.h"

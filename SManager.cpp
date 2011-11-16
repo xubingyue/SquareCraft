@@ -24,6 +24,33 @@ SManager::~SManager() {
 	delete gold;
 }
 
+
+void SManager::DrawAll() {
+	for(std::list<SBlock *>::iterator i=blocks.begin();i!=blocks.end();i++) {
+		float dist=SGame::GetInstance().utils.Distance(SGame::GetInstance().hero.GetPosition().x+12,SGame::GetInstance().hero.GetPosition().y+12,(*i)->GetPosition().x+12,(*i)->GetPosition().y+12);
+		if(SGame::GetInstance().moon.GetTexture()==SGame::GetInstance().sunt) {
+			if(dist<32) (*i)->light=10;
+			else if(dist<64) (*i)->light=10;
+			else if(dist<96) (*i)->light=9;
+			else if(dist<128) (*i)->light=8;
+			else if(dist<160) (*i)->light=7;
+			else (*i)->light=6;
+		}
+		else {
+			if(dist<32) (*i)->light=10;
+			else if(dist<64) (*i)->light=9;
+			else if(dist<96) (*i)->light=8;
+			else if(dist<128) (*i)->light=7;
+			else if(dist<160) (*i)->light=6;
+			else if(dist<192) (*i)->light=5;
+			else if(dist<224) (*i)->light=4;
+			else if(dist<256) (*i)->light=3;
+			else (*i)->light=2;
+		}
+		(*i)->DrawIt();
+	}
+}
+
 void SManager::PlaceBlock(sf::Texture *tex,float x,float y) {
 	if(GetBlock(x,y)==NULL) blocks.push_back(new SBlock(tex,x,y));
 }

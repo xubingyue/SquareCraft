@@ -1,7 +1,7 @@
 #ifndef SBLOCK_H
 #define SBLOCK_H
 
-class SBlock : public SObject {
+class SBlock : public sf::Sprite {
 public:
 	SBlock(sf::Texture *tex,float x,float y);
 	void DrawIt();

@@ -1,6 +1,6 @@
 #include "PCH.h"
 
-SAnimation::SAnimation(std::string files,float x,float y) : sf::Sprite() {
+SAnimation::SAnimation(std::string files) : sf::Sprite() {
 	current=-1;
 	speed=1;
 	max=0;

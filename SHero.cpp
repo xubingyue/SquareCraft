@@ -1,6 +1,8 @@
 #include "PCH.h"
 
-SHero::SHero(float x,float y) : SObject("hero.png",x,y) {
+SHero::SHero() : sf::Sprite() {
+	tex.LoadFromFile("hero.png");
+	SetTexture(tex);
 	jumpPower=6.0F;
 	gravity=0.3F;
 	xSpeed=0.0F;
@@ -31,7 +33,12 @@ void SHero::DrawIt() {
 
 	AdjustXPosition();
 	AdjustYPosition();
+
+	float oldx=GetPosition().x;
+	float oldy=GetPosition().y;
+	Move(SGame::GetInstance().camera_x,SGame::GetInstance().camera_y);
 	SGame::GetInstance().Draw(*this);
+	SetPosition(oldx,oldy);
 }
 
 bool SHero::Collide(float x,float y) {

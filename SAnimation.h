@@ -3,7 +3,7 @@
 
 class SAnimation : public sf::Sprite {
 public:
-	SAnimation(std::string files,float x=0,float y=0);
+	SAnimation(std::string files);
 	void DrawIt();
 	float current;
 	float speed;

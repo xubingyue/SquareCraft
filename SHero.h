@@ -1,9 +1,9 @@
 #ifndef SHERO_H
 #define SHERO_H
 
-class SHero : public SObject {
+class SHero : public sf::Sprite {
 public:
-	SHero(float x,float y);
+	SHero();
 	void DrawIt();
 
 private:
@@ -11,6 +11,7 @@ private:
 	void AdjustXPosition();
 	void AdjustYPosition();
 	float Sign(float a);
+	sf::Texture tex;
 	float jumpPower;
 	float gravity;
 	float xSpeed;
